@@ -10,6 +10,6 @@ async function addJson() {
         cardsEl.innerHTML = ''
     }
     addCards()   
-    
+
 }
 addJson()
