@@ -1,0 +1,38 @@
+
+.about {
+    width: 100%;
+    display: flex;
+    gap: 120px;
+    padding: 79px 0 100px 0;
+    align-items: center;
+    justify-content: center;
+
+    &-img {
+        display: block;
+        max-width: 300px;
+        width: 100%;
+    }
+    
+    .paragraph-l {
+        margin-top: 25px;
+        @include paragraph-l;
+        color: $color-dark-xl;
+    }
+}
+
+
+.about-content {
+    max-width: 430px;
+}
+
+.about-title {
+    max-width: 370px;
+    @include header3;
+}
+
+@media screen and (max-width:950px) {
+    .about {
+        flex-direction: column-reverse;
+        gap: 80px
+    }
+}

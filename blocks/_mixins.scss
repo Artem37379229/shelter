@@ -1,0 +1,60 @@
+@mixin header1 {
+    color: #f1cdb3;
+    font-family: $font-family;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 35.2px;
+    letter-spacing: 0.06em;
+}
+
+@mixin header2 {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 1.30;
+    color: $color-light-xl;
+}
+
+@mixin header3 {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 1.30;
+    letter-spacing: 0.06em;
+    color:  $color-dark-l;
+    
+}
+
+@mixin header4 {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    color:  $color-dark-l;
+}
+
+@mixin header5 {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.10;
+    letter-spacing: 0.06em;
+    color:  $color-dark-l;
+}
+
+@mixin paragraph-l {
+    font-family: $second-family;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.60;
+    color: $color-dark-s;
+}
+
+@mixin logo {
+    font-family: $second-family;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: $color-light-xl;
+}

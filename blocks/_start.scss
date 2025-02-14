@@ -1,0 +1,80 @@
+
+.start {
+    background: url(./images/noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+    display: flex;
+   
+    
+    &-content{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-image {
+        align-self: flex-end;
+        padding-top: 180px;
+        padding-right: 40px;
+        
+        img {
+           max-width: 728px;
+           display: block;
+        }
+    }
+}
+
+
+
+
+.contents {
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 42px;
+
+    h2 {
+        @include header2;
+        max-width: 310px;
+        
+    }
+
+    p {
+        @include paragraph-l;
+        max-width: 460px;
+
+    }
+
+    
+}
+
+@media screen and (max-width:950px) {
+    .start-content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 60px;
+    }
+
+    .button-no-border {
+        margin: 0 auto ;
+    }
+
+    .contents {
+        padding-left: 0px;
+        padding-top: 91px;
+    }
+
+    .start-image {
+        align-self: flex-end;
+        padding-top: 100px;
+        padding-right: 30px;
+        
+        img {
+           max-width: 569px;
+        }
+    }
+
+}
+

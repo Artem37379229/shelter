@@ -1,0 +1,60 @@
+
+.donats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background-color: #f6f6f6;
+    padding: 80px 0 100px 0;
+
+    &-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    &-icon {
+        padding-left: 5px;
+    }
+
+    &-text{
+        font-family: $second-family;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.50;
+        color: $color-dark-m;
+    }
+
+    &-body {
+        max-width: 380px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    
+    h3 {
+       text-align: center;
+       @include header3;
+       max-width: 320px;
+       text-align: left;
+    }
+
+    h5 {
+        @include header5;
+    }
+
+    button {
+        @include header4;
+        border-radius: 9px;
+        display: flex;
+        padding: 10px;
+        gap: 15px;
+        max-width: 349px;
+    }
+}
+}
+
+
+
+
