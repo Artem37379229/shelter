@@ -1,6 +1,6 @@
 const burgerBtn = document.querySelector('.header__burger-menu')
 const body = document.querySelector('body')
-const headerMenu = document.querySelector('.menu') 
+const headerMenu = document.querySelector('.menu')
 const headerList = document.querySelector('.menu-list')
 const menuLink = document.querySelectorAll('.menu-link')
 
@@ -11,7 +11,7 @@ burgerBtn.addEventListener('click', () => {
 })
 
 headerList.addEventListener('click', (e) => {
-    if((e.target.tagName) === 'A') {
+    if ((e.target.tagName) === 'A') {
         body.classList.remove('fixed-body')
         burgerBtn.classList.remove('burger-menu__rotate')
         headerMenu.classList.remove('menu-active')
@@ -20,7 +20,6 @@ headerList.addEventListener('click', (e) => {
 
 menuLink.forEach((link) => {
     link.addEventListener('click', (e) => {
-        e.preventDefault()
         if (headerMenu.classList.contains('menu-active')) {
             headerMenu.addEventListener('transitionend', () => {
                 document.querySelector(link.getAttribute('href')).scrollIntoView({behavior: 'smooth'})
@@ -33,67 +32,79 @@ menuLink.forEach((link) => {
 
 
 
-// async function addJson() {
-//     const response = await fetch("./packet.json");
-//     const arrCards = await response.json();
+
+function getDate() {
+    fetch("packet.json")
+        .then(res => res.json())
+        .then(data => {
+
+            const shuffle = (data) => [...data].sort(() => Math.random() - 0.5)
+
+            let currentCards = []
+
+            function makeCard(data) {
+                const slide = document.createElement('div');
+                slide.classList.add('slide');
+
+                slide.insertAdjacentHTML('afterbegin',`
+                  <img src="${data.img}" alt="${data.name}">
+                  <div class="slide-name">${data.name}</div>
+                  <button class="slider-card-button">Learn more</button>`
+                )
+
+                return slide;
+            }
 
 
-//     const sortCards = () => {
-//         arrCards.sort(() =>  Math.random() - 0.5)
-//     }
-//     sortCards()
-
-// const slider = document.querySelector('.slides__content')
-// let showCards = 3;
-
-// const decstopWidth = window.matchMedia('(min-width:1000px)')
-// const tableWidth = window.matchMedia('(min-width:501px) and (max-width: 949px')
-// const mobileWidth = window.matchMedia('(min-width:320px) and (max-width: 500px)')
+            function getSize () {
+                const width = window.innerWidth
+                if (width >= 1024) return 3;
+                if (width >= 768) return 2;
+                return 1;
+            }
 
 
-// function checkWindowWidth () {
+            function getNextGroup () {
+                const showCardsSize = getSize()
+                const available = data.filter(pet => !currentCards.includes(pet))
+                const shuffled = shuffle(available)
+                return shuffled.slice(0, showCardsSize)
+            }
 
-//     if (decstopWidth.matches) {
-//         showCards = 3
-//     } else if (tableWidth.matches) {
-//         showCards = 2
-//     } else if (mobileWidth.matches) {
-//         showCards = 1
-//     }
-//     console.log(showCards)
-// }
-// checkWindowWidth()
-// decstopWidth.addEventListener('change', checkWindowWidth)
-// tableWidth.addEventListener('change', checkWindowWidth)
-// mobileWidth.addEventListener('change', checkWindowWidth)
+            const slider = document.querySelector('.slides__content');
 
-// const clearSlider = () => {
-//     slider.innerHTML = ''
-// }
-// clearSlider()
+            function renderCards(data) {
+                data.forEach(card => slider.append(makeCard(card)))
+            }
 
-// const makeCard = (arr) => {
-//     const slideEl = document.createElement('div')
-//     slideEl.classList.add('slide')
+            function changeCards(data) {
+                slider.style.opacity = '0';
+                setTimeout(() => {
+                    slider.innerHTML = ``
+                    renderCards(data);
+                    slider.style.opacity = '1';
+                }, 300);
+            }
 
-//     const slideImage = document.createElement('img')
-//     slideImage.src = arr.img
+            function next() {
+                currentCards = getNextGroup();
+                changeCards(currentCards);
+            }
 
-//     const textDiv = document.createElement('div')
-//     textDiv.classList.add('slide-name')
-//     textDiv.textContent = arr.name
+            function prev() {
+                currentCards = getNextGroup();
+                changeCards(currentCards);
+            }
 
-//     const btnEl = document.createElement('button')
-//     btnEl.classList.add('slider-card-button')
-//     btnEl.textContent = 'Learn more'
+            currentCards = getNextGroup();
+            renderCards(currentCards);
 
-//     slideEl.append(slideImage, textDiv, btnEl)
-//     slider.appendChild(slideEl)
-//     return slideEl
-   
-// }
-// for(let i = 0; i < showCards; i++) {
-//     makeCard(arrCards[i])
-// }
-// }
-// addJson()
+            document.querySelector('.slider-button.next').addEventListener('click', next);
+            document.querySelector('.slider-button.prev').addEventListener('click', prev);
+
+
+        })
+        .catch(err => console.log(err))
+}
+
+getDate()

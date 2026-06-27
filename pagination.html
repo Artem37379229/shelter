@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pagination.css">
+    <title>Document</title>
+</head>
+<body>
+<header class="header">
+    <div class="content header-content">
+        <div class="logo">
+            <h1>Cozy House</h1>
+            <p>Shelter for pets in Boston</p>
+        </div>
+        <div class="header__burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="menu">
+            <ul class="menu-list">
+                <li class="menu-item"><a class="menu-link" href="./index.html">About the shelter</a></li>
+                <li class="menu-item"><a class="menu-link" href="./index.html">Our pets</a></li>
+                <li class="menu-item"><a class="menu-link" href="#help">Help the shelter</a></li>
+                <li class="menu-item"><a class="menu-link" href="#footer">Contacts</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<section class="pagination" id="pagination">
+    <div class="content pagination__content">
+        <h3 class="pagination__title">Our friends who <br> are looking for a house</h3>
+        <div class="pagination__cards">
+<!--            <div class="pagination__card">-->
+<!--                <img src="../images/pets/pets-katrine.png" alt="">-->
+<!--                <div class="pagination__card-name">Katrine</div>-->
+<!--                <button class="pagination__card-button">Learn more</button>-->
+<!--            </div>-->
+        </div>
+    </div>
+    <div class="controls-gallery__items">
+        <div class="controls-gallery__item slider-control slider-control--prev-start">
+            <span>&lt;&lt;</span>
+        </div>
+        <div class="controls-gallery__item slider-control slider-control--prev">
+            <span>&lt;</span>
+        </div>
+        <div class="controls-gallery__item slider-control slider-control--counter active">6</div>
+        <div class="controls-gallery__item slider-control slider-control--next slider-control--inactive">
+            <span>&gt;</span>
+        </div>
+        <div class="controls-gallery__item slider-control slider-control--next-end slider-control--inactive">
+            <span>&gt;&gt;</span>
+        </div>
+    </div>
+</section>
+<script src="./pagination.js"></script>
+</body>
+</html>

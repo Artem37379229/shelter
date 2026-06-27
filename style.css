@@ -333,6 +333,8 @@ button {
   gap: 90px;
   padding: 60px 0;
   justify-content: center;
+  will-change: transform;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
 .slide {
